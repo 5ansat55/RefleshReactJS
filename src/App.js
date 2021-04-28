@@ -1,5 +1,6 @@
 import React from "react";
-import GoalList from "./components/GoalList";
+import GoalList from "./components/GoalList/GoalList";
+import NewGoal from "./components/NewGoal/NewGoal";
 import "./App.css";
 
 // in the modern react use the functional component
@@ -11,6 +12,7 @@ const App = () => {
   ];
   return (
     <div className="course-goals">
+    <NewGoal />
       <h2>Course Goals</h2>
       <GoalList goalsData={courseGoals} />
     </div>
