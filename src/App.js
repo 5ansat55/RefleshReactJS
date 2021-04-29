@@ -5,16 +5,24 @@ import "./App.css";
 
 // in the modern react use the functional component
 const App = () => {
-  const [courseGoals,setCourseGoals] = useState( [
+  const [courseGoals, setCourseGoals] = useState([
     { id: "cg1", text: "Finish the Tutorial" },
     { id: "cg2", text: "Learn all about the react" },
     { id: "cg3", text: "Help other students in the course" },
   ]);
-  const addNewGoalHandler = (NewGoal) => {
+  const addNewGoalHandler = (newGoal) => {
+    
     // setCourseGoals([...courseGoals,NewGoal])
     //Alternative is concat() methot
-    setCourseGoals(courseGoals.concat(NewGoal));
+
+    // setCourseGoals(courseGoals.concat(newGoal));
+    //Better Alternative approach adding a newGoal
+
+    setCourseGoals((prevCourseGoals) => {
+      return prevCourseGoals.concat(newGoal);
+    });
   };
+
   return (
     <div className="course-goals">
       <NewGoal onAddGoal={addNewGoalHandler} />
